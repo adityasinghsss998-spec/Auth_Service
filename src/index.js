@@ -21,13 +21,13 @@ const prepareAndStartServer = ()=> {
     // const repo=new UserRepository()
     // const user=await repo.getByID(3);
     // console.log(user)
-     const userservice=new UserService();
+    //  const userservice=new UserService();
   //   const newtoken=userservice.createToken({email:"sanket@admin123.com",id:1});
   // // //  const newtoken = jwt.sign({ email: 'user@email.com' }, 'secret', { expiresIn: '1h' });
   //   console.log("new token is ",newtoken);
-  const token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbmtldEBhZG1pbjEyMy5jb20iLCJpZCI6MSwiaWF0IjoxNzcxNDg3MDQ2LCJleHAiOjE3NzE0OTA2NDZ9.PDHH3N2JUPLbLvr0MjAeZqGkcmNcb6xTfQF1nBHnNhY";
-  const response=userservice.verifyToken(token);
-  console.log(response)
+  // const token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbmtldEBhZG1pbjEyMy5jb20iLCJpZCI6MSwiaWF0IjoxNzcxNDg3MDQ2LCJleHAiOjE3NzE0OTA2NDZ9.PDHH3N2JUPLbLvr0MjAeZqGkcmNcb6xTfQF1nBHnNhY";
+  // const response=userservice.verifyToken(token);
+  // console.log(response)
 
   })
 }

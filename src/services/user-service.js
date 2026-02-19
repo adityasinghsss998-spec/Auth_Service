@@ -16,6 +16,24 @@ class UserService{
       throw(e);
      }
   }
+  async signIn(email,plainPassword){
+     try{
+      // step1-> fetch the user using the email
+      const user= await this.userRepository.getbyemail(email);
+      //staep2-> compare incoming palne password with the encrypted password
+      const passwordmatch=this.checkPassword(plainPassword,user.password);
+      if(!passwordmatch){
+        console.log("password doesn't match");
+        throw {error:"Incorrect password"};
+      }
+      //staep3= if password match then create a new token and send it to the user
+      const newJWT=this.createToken({email:user.email,id:user.id});
+      return newJWT
+    }catch(e){
+      console.log("Something went wrong in signing in the passsword");
+      throw e
+     }
+  }
   createToken(user){
     try{
       const result=jwt.sign(user,JWT_KEY,{expiresIn:'1h'});
@@ -34,6 +52,7 @@ class UserService{
       throw(e);
      }
   }
+  
   checkPassword(userInputPlainPassword,encryptPassword){
       try{
       return bcrypt.compareSync(userInputPlainPassword,encryptPassword)
